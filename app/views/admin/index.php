@@ -5,7 +5,7 @@
 <div class="row">
   <?php
   if (\Core\Auth::esAdmin()): ?>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Productos</h5>
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <a href="<?= BASE_URL ?>/tutoria/miTutoria">
         <div class="card text-center">
           <div class="card-body">
@@ -23,7 +23,7 @@
         </div>
       </a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <a href="<?= BASE_URL ?>/tutoria/miTutoria">
         <div class="card text-center">
           <div class="card-body">
@@ -35,7 +35,7 @@
     </div>
   <?php endif; ?>
   <?php if (\Core\Auth::esCliente()): ?>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <a href="<?= BASE_URL ?>/academico/reportes">
         <div class="card text-center">
           <div class="card-body">
