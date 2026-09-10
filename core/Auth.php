@@ -68,7 +68,7 @@ class Auth
             $stmt->execute([$session_id, $user_id]);
             $sesion = $stmt->fetch();
 
-            $tiempoSession = 4 * 60;
+            $tiempoSession = 20 * 60;
 
             if (!$sesion) {
                 self::logout(); // sesión expirada o cerrada desde admin
