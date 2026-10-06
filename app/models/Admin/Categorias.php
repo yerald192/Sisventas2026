@@ -35,4 +35,13 @@ class Categorias extends Model{
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return ['data' => $data, 'total' => count($data)];
     }
+
+    public function categorias_selec(){
+        // obtener tododas las categorias 
+        $sql = "SELECT id, nombre FROM {$this->table} WHERE activo = 1 ";
+        $stmt = self::$db->prepare($sql);
+        $stmt->execute();
+        // debolver los resultados como array asociativo
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

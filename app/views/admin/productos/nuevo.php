@@ -6,9 +6,12 @@
             <div class="col-md-4 form-group">
                 <label for="">CATEGORIA :</label>
                 <select name="" id="">
-                    <option value="">hola</option>
-                    <option value="">hola</option>
-                    <option value="">hola</option>
+                    <option value="">SELECIONE UNA CATEGORIA</option>
+                    <?php 
+                    foreach ($categorias as $c) {
+                        echo '<option value="' . $c['id'] . '">' . $c['nombre'] . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             <div class="col-md-4 form-group">
