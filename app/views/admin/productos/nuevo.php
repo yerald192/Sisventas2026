@@ -4,9 +4,9 @@
     <form action="" method="post">
         <div class="row">
             <div class="col-md-4 form-group">
-                <label for="">CATEGORIA :</label>
-                <select name="" id="">
-                    <option value="">SELECIONE UNA CATEGORIA</option>
+                <label for="categoria_id">CATEGORIA :</label>
+                <select class="form-control" name="categoria_id" id="categoria_id" required>
+                    <option value="">SELECCIONE UNA CATEGORIA</option>
                     <?php 
                     foreach ($categorias as $c) {
                         echo '<option value="' . $c['id'] . '">' . $c['nombre'] . '</option>';
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-4 form-group">
                 <label for="precio">PRECIO VENTA :</label>
-                <input type="number" class="form-control" name="precio" id="precio" required>
+                <input type="number" class="form-control" name="precio" id="precio" step="0.01" required>
             </div>
             <div class="col-md-4 form-group">
                 <label for="stock">STOCK ACTUAL :</label>
