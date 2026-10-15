@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 <div class="card p-3">
     <h3>REGISTRAR PRODUCTO</h3>
-    <form action="" method="post">
+    <form action="<?= BASE_URL ?> /admin/productos/guardar" method="post">
         <div class="row">
             <div class="col-md-4 form-group">
                 <label for="categoria_id">CATEGORIA :</label>
@@ -38,7 +38,7 @@
         <div class="card-footer" style="text-align:center;">
             <button class="btn btn-danger" type="button"><i class="fas fa-times"></i> CANCELAR</button>
             <button class="btn btn-secondary" type="reset"><i class="fas fa-trash"></i> LIMPIAR</button>
-            <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> GUARDAR</button>
+            <button class="btn btn-success" type="submit"><i class="fas fa-save"></i> GUARDAR</button>
         </div>
     </form>
 </div>

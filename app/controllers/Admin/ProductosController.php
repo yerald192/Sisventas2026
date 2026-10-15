@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers\Admin;
 
 use Core\Controller;
@@ -9,9 +10,10 @@ class ProductosController extends Controller
 {
     // Modelo de categorías
     protected $categoriasModel;
-    
+
     // Constructor
-    public function __construct() {
+    public function __construct()
+    {
         // Inicializa el modelo de categorías
         $this->categoriasModel = new Categorias();
     }
@@ -29,9 +31,10 @@ class ProductosController extends Controller
     }
 
     // Muestra el formulario para crear un nuevo producto
-    public function nuevo(){
+    public function nuevo()
+    {
         //categoria dinamica de la base de datos
-        $categorias = $this->categoriasModel->categorias_selec();        
+        $categorias = $this->categoriasModel->categorias_selec();
         // Carga la vista del formulario
         $this->view('admin/productos/nuevo', [
             'isAdmin'   => true,
@@ -40,5 +43,16 @@ class ProductosController extends Controller
             'categorias' => $categorias
         ]);
         exit;
+    }
+
+    //FUNCION PARA GUARDAR 
+    public function guardar()
+    {
+        $data = $_POST;
+        if (!empty($data['categoria']) && !empty($data['codigo']) && !empty($data['nombre']) && !empty($data['descripcion']) && !empty($data['precio']) && !empty($data['stock'])) {
+
+        } else {
+            header('Location: ' . BASE_URL . '/admin/productos/nuevo');
+        }
     }
 }
