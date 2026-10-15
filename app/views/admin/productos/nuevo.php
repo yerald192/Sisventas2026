@@ -1,15 +1,15 @@
 <?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 <div class="card p-3">
     <h3>REGISTRAR PRODUCTO</h3>
-    <form action="<?= BASE_URL ?> /admin/productos/guardar" method="post">
+    <form action="<?= BASE_URL ?>/admin/productos/guardar" method="post">
         <div class="row">
             <div class="col-md-4 form-group">
-                <label for="categoria_id">CATEGORIA :</label>
-                <select class="form-control" name="categoria_id" id="categoria_id" required>
+                <label for="categoria">CATEGORIA :</label>
+                <select class="form-control" name="categoria" id="categoria" required>
                     <option value="">SELECCIONE UNA CATEGORIA</option>
                     <?php
-                    foreach ($categorias as $c) {
-                        echo '<option value="' . $c['id'] . '">' . $c['nombre'] . '</option>';
+                    foreach ($categorias as $categoria) {
+                        echo '<option value="' . $categoria['id'] . '">' . $categoria['nombre'] . '</option>';
                     }
                     ?>
                 </select>
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="card-footer" style="text-align:center;">
-            <button class="btn btn-danger" type="button"><i class="fas fa-times"></i> CANCELAR</button>
+            <a href="<?= BASE_URL ?>/admin/productos" class="btn btn-danger"><i class="fas fa-times"></i> CANCELAR</a>
             <button class="btn btn-secondary" type="reset"><i class="fas fa-trash"></i> LIMPIAR</button>
             <button class="btn btn-success" type="submit"><i class="fas fa-save"></i> GUARDAR</button>
         </div>
