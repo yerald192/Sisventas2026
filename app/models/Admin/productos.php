@@ -32,7 +32,14 @@ class Productos extends Model
         return $preparado->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function ver($id) {}
+    public function ver(Int $id)
+    {
+        $params = [':id' => $id];
+        $sql = "SELECT * FROM {$this->table} WHERE id=:id";
+        $preparado = self::$db->prepare($sql);
+        $preparado->execute($params);
+        return $preparado->fetch(PDO::FETCH_ASSOC);
+    }
     public function actualizar() {}
     public function eliminar() {}
 }

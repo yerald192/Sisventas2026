@@ -77,4 +77,22 @@ class ProductosController extends Controller
             exit;
         }
     }
+    //metodo editar
+    public function editar($id)
+    {
+        // Estas categorías se utilizan para llenar el selector del formulario.
+        $categorias = $this->categoriasModel->categorias_selec();
+        //buscar un producto por id
+        $producto = $this->productosModel->ver($id);
+        //var_dump($producto); 
+        // Envía a la vista los datos necesarios para renderizar el formulario.
+        $this->view('admin/productos/editar', [
+            'isAdmin'   => true,
+            'module'    => 'admin',
+            'pageTitle' => 'editar Producto',
+            'categorias' => $categorias,
+            'producto' => $producto
+        ]);
+        exit;
+    }
 }
