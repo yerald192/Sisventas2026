@@ -95,4 +95,28 @@ class ProductosController extends Controller
         ]);
         exit;
     }
+
+    //metodo actualizar
+    public function actualizar()
+    {
+        $data = $_POST;
+        if (!empty($data['categoria']) && !empty($data['codigo']) && !empty($data['nombre']) && !empty($data['descripcion']) && !empty($data['precio']) && !empty($data['stock'])) {
+            // actualizar el producto
+            $respuesta = $this->productosModel->actualizar($data);
+            if ($respuesta) {
+                //notificar al usuario que el producto se guardo correctamente
+                $_SESSION['flash_success'] = "Producto actualizado correctamente";
+                //redireccion a la lista de productos
+                header('Location: ' . BASE_URL . '/admin/productos');
+            } else {
+                //notificar al usuario que hubo un error al guardar el producto
+                $_SESSION['flash_error'] = "Error al actualizar el producto";
+                //redireccion al formulario de nuevo producto
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $_SESSION['flash_error'] = "Error: Campos vacíos";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
+    }
 }
